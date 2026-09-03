@@ -1,5 +1,5 @@
 let wins = 0, losses = 0, draws = 0;
-const emojis = ['🪨', '📄', '✂️'];
+const emojis = ['✊', '✋', '✌️'];
 
 async function play(choice) {
     const res = await fetch('/api/rps/play', {

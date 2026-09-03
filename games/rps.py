@@ -2,7 +2,7 @@ import random
 
 def play(player_choice):
     labels = ['Rock', 'Paper', 'Scissors']
-    emojis = ['🪨', '📄', '✂️']
+    emojis = ['✊', '✋', '✌️']
     computer_choice = random.randint(0, 2)
 
     if player_choice == computer_choice:
