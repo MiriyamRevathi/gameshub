@@ -3,7 +3,7 @@ name = "python-games-platform"
 version = "1.0.0"
 description = "Enterprise Python Game Suite with AI, Engine, Simulation, API, and CLI"
 authors = ["Developer dev@example.com"]
-license = "MIT"
+license = "Proprietary"
 readme = "README.md"
 
 [tool.poetry.dependencies]
