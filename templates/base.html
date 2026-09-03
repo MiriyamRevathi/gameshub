@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Python Games{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="topbar">
+        <nav class="nav-inner" aria-label="Primary navigation">
+            <a href="/" class="brand">Python Games</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link {{ 'active' if request.endpoint == 'index' }}">Home</a>
+                <a href="/rps" class="nav-link {{ 'active' if request.endpoint == 'rps_page' }}">Rock Paper Scissors</a>
+                <a href="/tictactoe" class="nav-link {{ 'active' if request.endpoint == 'tictactoe_page' }}">Tic Tac Toe</a>
+                <a href="/mastermind" class="nav-link {{ 'active' if request.endpoint == 'mastermind_page' }}">Mastermind</a>
+                <a href="/war" class="nav-link {{ 'active' if request.endpoint == 'war_page' }}">War</a>
+                <a href="/blackjack" class="nav-link {{ 'active' if request.endpoint == 'blackjack_page' }}">Blackjack</a>
+            </div>
+            <div class="user-panel">
+                {% if current_user %}
+                    <span class="user-name">{{ current_user['username'] }}</span>
+                    <a href="/logout" class="btn-logout">Logout</a>
+                {% else %}
+                    <a href="/login" class="btn-nav-auth">Login</a>
+                    <a href="/register" class="btn-nav-auth btn-nav-register">Register</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    <main class="main-area">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">
+                        {{ message }}
+                        <button class="flash-close" onclick="this.parentElement.remove()" aria-label="Dismiss">×</button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

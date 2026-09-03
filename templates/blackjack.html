@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Blackjack — Python Games{% endblock %}
+
+{% block content %}
+<div class="page-enter">
+    <div class="game-header">
+        <a href="/" class="back-button">← Back to Games</a>
+        <h1>Blackjack</h1>
+        <p>Try to get as close to 21 as possible without going over. Beat the dealer to win!</p>
+    </div>
+
+    <div class="game-layout">
+        <div class="game-panel">
+            <div class="bj-area">
+                <div class="card-label">Dealer <span id="dealer-value" class="bj-value"></span></div>
+                <div id="dealer-cards" class="bj-cards"></div>
+            </div>
+
+            <div class="bj-area">
+                <div class="card-label">Your hand <span id="player-value" class="bj-value"></span></div>
+                <div id="player-cards" class="bj-cards"></div>
+            </div>
+
+            <div id="result-message" class="result-message" aria-live="polite">
+                Your move: hit for another card or stand.
+            </div>
+
+            <div class="action-row">
+                <button onclick="hit()" class="btn-primary" id="hit-btn" type="button">Hit</button>
+                <button onclick="stand()" class="btn-warning" id="stand-btn" type="button">Stand</button>
+                <button onclick="newGame()" class="btn-secondary" type="button">New Game</button>
+            </div>
+        </div>
+
+        <aside class="score-panel">
+            <h3>Scoreboard</h3>
+            <div class="score-row">
+                <span>Wins</span><strong id="bj-wins">0</strong>
+            </div>
+            <div class="score-row">
+                <span>Losses</span><strong id="bj-losses">0</strong>
+            </div>
+            <div class="score-row">
+                <span>Pushes</span><strong id="bj-pushes">0</strong>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/blackjack.js') }}"></script>
+{% endblock %}

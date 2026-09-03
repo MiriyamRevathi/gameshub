@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Rock Paper Scissors — Python Games{% endblock %}
+
+{% block content %}
+<div class="page-enter">
+    <div class="game-header">
+        <a href="/" class="back-button">← Back to Games</a>
+        <h1>Rock Paper Scissors</h1>
+        <p>Choose rock, paper, or scissors to challenge the computer. Higher hand wins the round.</p>
+    </div>
+
+    <div class="game-layout">
+        <div class="game-panel">
+            <div class="choice-grid">
+                <button onclick="play(0)" class="choice" type="button" aria-label="Choose rock">🪨<span>Rock</span></button>
+                <button onclick="play(1)" class="choice" type="button" aria-label="Choose paper">📄<span>Paper</span></button>
+                <button onclick="play(2)" class="choice" type="button" aria-label="Choose scissors">✂️<span>Scissors</span></button>
+            </div>
+
+            <div class="rps-result-row">
+                <div class="rps-choice-card">
+                    <span class="rps-choice-label">You Chose</span>
+                    <div id="player-choice" class="rps-choice-display">—</div>
+                </div>
+                <div id="result-message" class="result-message" aria-live="polite">
+                    Make your move above to start the match.
+                </div>
+                <div class="rps-choice-card">
+                    <span class="rps-choice-label">Computer Chose</span>
+                    <div id="computer-choice" class="rps-choice-display">—</div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="score-panel">
+            <h3>Scoreboard</h3>
+            <div class="score-row">
+                <span>Wins</span><strong id="wins">0</strong>
+            </div>
+            <div class="score-row">
+                <span>Losses</span><strong id="losses">0</strong>
+            </div>
+            <div class="score-row">
+                <span>Draws</span><strong id="draws">0</strong>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/rps.js') }}"></script>
+{% endblock %}

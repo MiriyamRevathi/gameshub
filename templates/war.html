@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}War — Python Games{% endblock %}
+
+{% block content %}
+<div class="page-enter">
+    <div class="game-header">
+        <a href="/" class="back-button">← Back to Games</a>
+        <h1>War</h1>
+        <p>Draw a card against the computer. Higher rank wins the round and takes both cards. In a tie, it's WAR!</p>
+    </div>
+
+    <div class="game-layout">
+        <div class="game-panel">
+            <div class="war-showdown">
+                <div class="war-card-box">
+                    <div class="card-label">Your card</div>
+                    <div id="player-card" class="playing-card">🂠</div>
+                </div>
+                <div class="war-vs-badge">VS</div>
+                <div class="war-card-box">
+                    <div class="card-label">Computer card</div>
+                    <div id="computer-card" class="playing-card">🂠</div>
+                </div>
+            </div>
+
+            <div id="result-message" class="result-message" aria-live="polite">
+                Draw a card to begin the battle.
+            </div>
+
+            <div class="action-row">
+                <button onclick="drawCard()" class="btn-primary" id="draw-btn" type="button">Draw Card</button>
+                <button onclick="newGame()" class="btn-secondary" type="button">New Game</button>
+            </div>
+        </div>
+
+        <aside class="score-panel">
+            <h3>Card Counts</h3>
+            <div class="score-row">
+                <span>Your Deck</span><strong id="player-count">26</strong>
+            </div>
+            <div class="score-row">
+                <span>Computer Deck</span><strong id="computer-count">26</strong>
+            </div>
+            <div class="score-row">
+                <span>Rounds</span><strong id="round-num">0</strong>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/war.js') }}"></script>
+{% endblock %}

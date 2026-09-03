@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Python Games — Home{% endblock %}
+
+{% block content %}
+<div class="page-enter">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Python Games</h1>
+            <p>A collection of classic board and card games built with Python &amp; Flask. Challenge the computer, crack codes, and test your luck.</p>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <h2>Game Library</h2>
+    </div>
+
+    <section class="game-grid" aria-label="Game library">
+        <article class="game-card">
+            <div class="game-art">✊ ✋ ✌️</div>
+            <h3>Rock Paper Scissors</h3>
+            <p>The classic hand game — pick your move and try to beat the computer.</p>
+            <div class="card-bottom">
+                <span class="badge badge-available">✓ Available</span>
+                <a href="/rps" class="btn-play">Play →</a>
+            </div>
+        </article>
+
+        <article class="game-card">
+            <div class="game-art compact">✕ &nbsp; ◯</div>
+            <h3>Tic Tac Toe</h3>
+            <p>Take on a smart AI opponent on the classic 3×3 grid.</p>
+            <div class="card-bottom">
+                <span class="badge badge-available">✓ Available</span>
+                <a href="/tictactoe" class="btn-play">Play →</a>
+            </div>
+        </article>
+
+        <article class="game-card">
+            <div class="game-art compact">🔴 🟡 🔵 🟣</div>
+            <h3>Mastermind</h3>
+            <p>Crack the secret 4-color code in 10 guesses or fewer.</p>
+            <div class="card-bottom">
+                <span class="badge badge-available">✓ Available</span>
+                <a href="/mastermind" class="btn-play">Play →</a>
+            </div>
+        </article>
+
+        <article class="game-card">
+            <div class="game-art compact">♠️ &nbsp; ♥️</div>
+            <h3>War</h3>
+            <p>Draw cards and battle the computer in this classic card showdown.</p>
+            <div class="card-bottom">
+                <span class="badge badge-available">✓ Available</span>
+                <a href="/war" class="btn-play">Play →</a>
+            </div>
+        </article>
+
+        <article class="game-card">
+            <div class="game-art compact">A♠ &nbsp; 21</div>
+            <h3>Blackjack</h3>
+            <p>Hit or stand — try to beat the dealer without going over 21.</p>
+            <div class="card-bottom">
+                <span class="badge badge-available">✓ Available</span>
+                <a href="/blackjack" class="btn-play">Play →</a>
+            </div>
+        </article>
+
+        <article class="game-card" style="opacity:.65; pointer-events:none;">
+            <div class="game-art compact">🔒</div>
+            <h3>More Games</h3>
+            <p>Additional games are being developed. Stay tuned for updates!</p>
+            <div class="card-bottom">
+                <span class="badge badge-soon">Coming Soon</span>
+            </div>
+        </article>
+    </section>
+</div>
+{% endblock %}

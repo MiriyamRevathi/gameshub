@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Mastermind — Python Games{% endblock %}
+
+{% block content %}
+<div class="page-enter">
+    <div class="game-header">
+        <a href="/" class="back-button">← Back to Games</a>
+        <h1>Mastermind</h1>
+        <p>Crack the secret 4-color code in 10 guesses or fewer. Click colors to build your guess.</p>
+    </div>
+
+    <div class="game-layout">
+        <div class="game-panel">
+            <div class="mm-current">
+                <h3>Your Guess:</h3>
+                <div class="mm-guess-slots" id="current-guess">
+                    <div class="mm-slot" data-idx="0" onclick="removeSlot(0)"></div>
+                    <div class="mm-slot" data-idx="1" onclick="removeSlot(1)"></div>
+                    <div class="mm-slot" data-idx="2" onclick="removeSlot(2)"></div>
+                    <div class="mm-slot" data-idx="3" onclick="removeSlot(3)"></div>
+                </div>
+            </div>
+
+            <div class="mm-palette" id="palette">
+                <button class="mm-color-btn" style="background: #e74c3c" onclick="addColor('red')" aria-label="Red"></button>
+                <button class="mm-color-btn" style="background: #3498db" onclick="addColor('blue')" aria-label="Blue"></button>
+                <button class="mm-color-btn" style="background: #2ecc71" onclick="addColor('green')" aria-label="Green"></button>
+                <button class="mm-color-btn" style="background: #f1c40f" onclick="addColor('yellow')" aria-label="Yellow"></button>
+                <button class="mm-color-btn" style="background: #e67e22" onclick="addColor('orange')" aria-label="Orange"></button>
+                <button class="mm-color-btn" style="background: #9b59b6" onclick="addColor('purple')" aria-label="Purple"></button>
+            </div>
+
+            <div class="action-row">
+                <button onclick="submitGuess()" class="btn-primary" id="submit-btn" type="button">Submit Guess</button>
+                <button onclick="clearGuess()" class="btn-secondary" type="button">Clear</button>
+                <button onclick="newGame()" class="btn-secondary" type="button">New Game</button>
+            </div>
+
+            <div id="result-message" class="result-message" aria-live="polite">
+                Choose four colors and submit your first guess.
+            </div>
+
+            <div class="mm-history" id="history"></div>
+        </div>
+
+        <aside class="score-panel">
+            <h3>Game Status</h3>
+            <div class="score-row">
+                <span>Guesses Left</span><strong id="remaining">10</strong>
+            </div>
+            <div class="score-row">
+                <span>Total Attempts</span><strong id="mm-attempts">0</strong>
+            </div>
+            <p class="status-note">
+                ⚫ Black peg = Correct color &amp; position<br>
+                ⚪ White peg = Correct color, wrong position
+            </p>
+        </aside>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/mastermind.js') }}"></script>
+{% endblock %}
