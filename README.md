@@ -31,7 +31,7 @@ A collection of classic board and card games built in Python to explore differen
 ```
 
 - **Web Games**: Flask backend serves game logic via API, frontend handles rendering and user interaction
-- **Snake**: Standalone Pygame application with graphics and audio
+- **Snake**: Standalone Pygame application with graphics 
 
 ## Folder Structure
 
